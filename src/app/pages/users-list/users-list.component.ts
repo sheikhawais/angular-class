@@ -8,14 +8,29 @@ import { User } from 'src/app/models/users';
 })
 export class UsersListComponent implements OnInit {
 
-  users: User[] = [
-    { name: 'Awais', age: 30, email: 'sh.awais14@gmail.com' },
-    { name: 'Youssef', age: 27, email: 'youssef.yehia152@gmail.com' },
-  ]
+  users: User[] = [];
+  addUser: boolean = false;
+  userToBeEdited: any;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.loadUsers();
+  }
+
+  loadUsers() {
+    this.users = JSON.parse(localStorage.getItem('users') || '[]') || [];
+  }
+
+  saveUser(user: any) {
+    this.users.push(user);
+    this.addUser = false;
+    localStorage.setItem('users', JSON.stringify(this.users));
+  }
+
+  editUser(user: User) {
+    this.addUser = true;
+    this.userToBeEdited = user;
   }
 
 }

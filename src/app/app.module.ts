@@ -5,16 +5,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AddUsersComponent } from './pages/add-users/add-user.component';
 import { UsersListComponent } from './pages/users-list/users-list.component';
+import { FormsModule } from '@angular/forms';
+import { CountriesListComponent } from './pages/countries-list/countries-list.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddUsersComponent,
-    UsersListComponent
+    UsersListComponent,
+    CountriesListComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

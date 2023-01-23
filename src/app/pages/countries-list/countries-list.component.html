@@ -1,0 +1,33 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="countries-list">
+                <h3>Countries List</h3>
+                <div class="loader w-100 text-center p-5" *ngIf="!countries.length">
+                    <div class="spinner-border" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+                <table class="table table-striped" *ngIf="countries.length">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Native Name</th>
+                            <th>Capital</th>
+                            <th>Area</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let country of countries">
+                            <td><img class="country-flag" [src]="country.flag" alt="Country Flag" />{{ country.name }}</td>
+                            <td>{{ country.nativeName }}</td>
+                            <td>{{ country.capital }}</td>
+                            <td>{{ country.area | number }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
