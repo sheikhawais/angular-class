@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/users';
+import {MatButtonModule} from '@angular/material/button';
+import { UsersService } from 'src/app/modules/users/services/users.service';
 
 @Component({
   selector: 'app-users-list',
@@ -12,7 +14,9 @@ export class UsersListComponent implements OnInit {
   addUser: boolean = false;
   userToBeEdited: any;
 
-  constructor() { }
+  constructor(
+    private usersService: UsersService
+  ) { }
 
   ngOnInit(): void {
     this.loadUsers();
@@ -20,6 +24,7 @@ export class UsersListComponent implements OnInit {
 
   loadUsers() {
     this.users = JSON.parse(localStorage.getItem('users') || '[]') || [];
+    this.usersService.users = this.users;
   }
 
   saveUser(user: any) {

@@ -5,7 +5,8 @@ import { CountriesListComponent } from './pages/countries-list/countries-list.co
 import { UsersListComponent } from './pages/users-list/users-list.component';
 
 const routes: Routes = [
-  { path: 'users', component: UsersListComponent },
+  { path: 'users', loadChildren: () => import('./modules/users/users.module').then(m => m.UsersModule) },
+  { path: 'users-list', component: UsersListComponent },
   { path: 'countries', component: CountriesListComponent },
   { path: '', pathMatch: 'full', redirectTo: 'users'}
 ];

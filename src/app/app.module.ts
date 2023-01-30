@@ -8,6 +8,7 @@ import { UsersListComponent } from './pages/users-list/users-list.component';
 import { FormsModule } from '@angular/forms';
 import { CountriesListComponent } from './pages/countries-list/countries-list.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    MatButtonModule,
     HttpClientModule
   ],
   providers: [],
